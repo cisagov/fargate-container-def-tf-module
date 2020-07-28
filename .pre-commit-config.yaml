@@ -36,10 +36,6 @@ repos:
     rev: v1.23.0
     hooks:
       - id: yamllint
-  - repo: https://github.com/detailyang/pre-commit-shell
-    rev: 1.0.5
-    hooks:
-      - id: shell-lint
   - repo: https://gitlab.com/pycqa/flake8
     rev: 3.8.3
     hooks:
@@ -68,11 +64,6 @@ repos:
     rev: 5.0.7
     hooks:
       - id: isort
-  - repo: https://github.com/ansible/ansible-lint.git
-    rev: v4.3.0a3
-    hooks:
-      - id: ansible-lint
-      # files: molecule/default/playbook.yml
   - repo: https://github.com/antonbabenko/pre-commit-terraform.git
     rev: v1.31.0
     hooks:
