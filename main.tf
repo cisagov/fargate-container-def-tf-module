@@ -20,6 +20,7 @@ module "container" {
   container_image = var.container_image
   entrypoint      = var.entrypoint
   essential       = "true"
+
   log_configuration = {
     logDriver = "awslogs"
     options = {
@@ -28,6 +29,7 @@ module "container" {
       awslogs-stream-prefix = "/ecs/${var.name}"
     }
   }
+
   port_mappings = [
     {
       containerPort = var.container_port

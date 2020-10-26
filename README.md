@@ -17,42 +17,62 @@ details on Terraform modules and the standard module structure.
 ## Usage ##
 
 ```hcl
-module "example" {
-  source = "github.com/cisagov/skeleton-tf-module"
+module "fargate_container" {
+  source = "github.com/cisagov/fargate-container-def-tf-module"
 
-  aws_region            = "us-west-1"
-  aws_availability_zone = "b"
-  subnet_id             = "subnet-0123456789abcdef0"
+  region          = "us-west-1"
+  namespace       = "cisagov"
+  stage           = "testing"
+  name            = "example-test"
+  container_name  = "test-container"
+  container_image = "cisagov/example"
+  container_port  = 8080
 
-  tags = {
-    Key1 = "Value1"
-    Key2 = "Value2"
+  environment = {
+    ECHO_MESSAGE = "Fargate testing container."
   }
 }
 ```
 
 ## Examples ##
 
-* [Deploying into the default VPC](https://github.com/cisagov/skeleton-tf-module/tree/develop/examples/default_vpc)
+* No examples.
+
+## Requirements ##
+
+| Name | Version |
+|------|---------|
+| terraform | ~> 0.12.0 |
+| aws | ~> 3.0 |
+
+## Providers ##
+
+| Name | Version |
+|------|---------|
+| aws | ~> 3.0 |
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-------:|:--------:|
-| aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
-| aws_availability_zone | The AWS availability zone to deploy into (e.g. a, b, c, etc.) | string | | yes |
-| subnet_id | The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0) | string | | yes |
-| tags | Tags to apply to all AWS resources created | map(string) | `{}` | no |
+|------|-------------|------|---------|:--------:|
+| container_image | n/a | `string` | n/a | yes |
+| container_name | n/a | `string` | n/a | yes |
+| container_port | n/a | `number` | n/a | yes |
+| entrypoint | n/a | `list(string)` | `null` | no |
+| environment | n/a | `map(string)` | `{}` | no |
+| log_retention | n/a | `number` | `7` | no |
+| name | n/a | `string` | n/a | yes |
+| namespace | n/a | `string` | n/a | yes |
+| region | n/a | `string` | n/a | yes |
+| secrets | n/a | `map(string)` | `{}` | no |
+| stage | n/a | `string` | n/a | yes |
 
 ## Outputs ##
 
 | Name | Description |
 |------|-------------|
-| id | The EC2 instance ID |
-| arn | The EC2 instance ARN |
-| availability_zone | The AZ where the EC2 instance is deployed |
-| private_ip | The private IP of the EC2 instance |
-| subnet_id | The ID of the subnet where the EC2 instance is deployed |
+| json | n/a |
+| json_map | n/a |
 
 ## Notes ##
 
@@ -62,7 +82,7 @@ every directory under `examples/`.
 
 ## Contributing ##
 
-We welcome contributions!  Please see [here](CONTRIBUTING.md) for
+We welcome contributions!  Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for
 details.
 
 ## License ##
