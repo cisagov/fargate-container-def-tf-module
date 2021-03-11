@@ -1,6 +1,6 @@
-# skeleton-tf-module #
+# fargate-container-def-tf-module #
 
-[![GitHub Build Status](https://github.com/cisagov/skeleton-tf-module/workflows/build/badge.svg)](https://github.com/cisagov/skeleton-tf-module/actions)
+[![GitHub Build Status](https://github.com/cisagov/fargate-container-def-tf-module/workflows/build/badge.svg)](https://github.com/cisagov/fargate-container-def-tf-module/actions)
 
 This is a generic skeleton project that can be used to quickly get a
 new [cisagov](https://github.com/cisagov) [Terraform
