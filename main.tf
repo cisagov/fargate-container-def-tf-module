@@ -1,5 +1,5 @@
 module "label" {
-  source     = "github.com/cloudposse/terraform-null-label"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=0.12/master"
   enabled    = true
   attributes = []
   delimiter  = "-"
@@ -15,7 +15,7 @@ resource "aws_cloudwatch_log_group" "_" {
 }
 
 module "container" {
-  source          = "github.com/cloudposse/terraform-aws-ecs-container-definition"
+  source          = "git::https://github.com/cloudposse/terraform-aws-ecs-container-definition.git?ref=0.12/master"
   container_name  = var.container_name
   container_image = var.container_image
   entrypoint      = var.entrypoint
